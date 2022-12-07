@@ -4,31 +4,44 @@
     "title": ". pipeline parameters",
     "description": "",
     "type": "object",
-    "properties": {
-        "in": {
-            "type": "string",
-            "default": "/home/jyao/validate_fastqc_multiqc_nf2/fastq/*.fastq.gz"
-        },
-        "validate": {
-            "type": "string",
-            "default": "false"
-        },
-        "root_output_dir": {
-            "type": "string",
-            "default": "nf_output"
-        },
-        "options": {
-            "type": "string",
-            "enum": [
-                "value1",
-                "value2",
-                "value3"
-            ]
-        },
-        "new_param_1": {
-            "type": "integer",
-            "minimum": 1,
-            "maximum": 10
+    "definitions": {
+        "required": {
+            "title": "Required",
+            "type": "object",
+            "description": "",
+            "default": "",
+            "properties": {
+                "in": {
+                    "type": "string",
+                    "default": "/home/jyao/validate_fastqc_multiqc_nf2/fastq/*.fastq.gz"
+                },
+                "validate": {
+                    "type": "string",
+                    "default": "false"
+                },
+                "root_output_dir": {
+                    "type": "string",
+                    "default": "nf_output"
+                },
+                "options": {
+                    "type": "string",
+                    "enum": [
+                        "value1",
+                        "value2",
+                        "value3"
+                    ]
+                },
+                "new_param_1": {
+                    "type": "integer",
+                    "minimum": 1,
+                    "maximum": 10
+                }
+            }
         }
-    }
+    },
+    "allOf": [
+        {
+            "$ref": "#/definitions/required"
+        }
+    ]
 }
